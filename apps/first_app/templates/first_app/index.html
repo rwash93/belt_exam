@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+     <div>
+        <h1>Welcome! Sign in to make a wish!!</h1>
+        <h2>Register</h2>
+            <form action= '/register' method='POST'>
+                    {% csrf_token %}
+                    <label>First name</label>
+                    <input type ='text' name= 'first_name' value=''>
+                    
+                    <label>Last name</label>
+                    <input type ='text' name='last_name' value=''>
+                            
+                    <label>Email</label>
+                    <input type ='text' name='email' value=''>
+                    
+                    <label>Password</label>
+                    <input type = 'password' name='password' value=''>
+        
+                    <label>Confirm Password</label>
+                    <input type= 'password' name='confirm_password' value=''>
+                            
+                    <button type="submit">Register</button>
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p>{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                </form>
+                    
+                <h2>Login</h2>
+                <form action='/login' method='POST'>
+                {% csrf_token %}
+                <label>Email</label>
+                <input type="text" name='email' value=''>
+                    
+                <label>Password</label>
+                <input type='password' name='password' value=''>
+                           
+                <button  type= 'submit'>Login</button>
+                </form>
+            </div>
+                    
+    
+</body>
+</html>

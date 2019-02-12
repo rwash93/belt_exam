@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add</title>
+</head>
+<body>
+        {% if messages %}
+        {% for message in messages %}
+        <p>{{message}}</p>
+        {% endfor %}
+    {% endif %}
+    <form action = "/add" method="POST">
+        {% csrf_token %}
+        <label>I wish for</label>
+        <input type ="text" name="wish_title" value="" >
+        <label>Description</label>
+        <input type ="message" name="wish_description">
+        <button type="submit" name="create" value="create">Button</button>
+    </form>
+    <a href="logout">Logout</a>
+    <a href="/go_back">Go Back</a>
+
+    
+</body>
+</html>
